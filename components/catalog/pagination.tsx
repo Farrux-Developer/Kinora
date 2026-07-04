@@ -17,7 +17,7 @@ export function Pagination({
 
   const itemClass =
     "flex h-9 min-w-9 items-center justify-center rounded-md border px-2 text-sm font-medium transition-colors";
-  const idleClass = "border-line text-ink hover:border-mist-2";
+  const idleClass = "border-line text-fg hover:border-mist-2";
   const activeClass = "border-accent bg-accent text-white";
   const disabledClass = "pointer-events-none border-line text-mist-2";
 

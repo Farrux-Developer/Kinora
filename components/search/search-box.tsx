@@ -120,14 +120,14 @@ export function SearchBox() {
         role="combobox"
         aria-expanded={open}
         aria-controls="search-suggestions"
-        className="h-9 w-full rounded-md border border-line bg-paper pr-3 pl-9 text-sm text-ink placeholder:text-mist-2 transition-colors focus:border-accent focus:bg-white focus:outline-none"
+        className="h-9 w-full rounded-md border border-line bg-paper pr-3 pl-9 text-sm text-fg placeholder:text-mist-2 transition-colors focus:border-accent focus:bg-surface focus:outline-none"
       />
 
       {open && (
         <div
           id="search-suggestions"
           role="listbox"
-          className="absolute top-full right-0 left-0 z-50 mt-1.5 overflow-hidden rounded-lg border border-line bg-white"
+          className="absolute top-full right-0 left-0 z-50 mt-1.5 overflow-hidden rounded-lg border border-line bg-surface"
         >
           {suggestions.length === 0 ? (
             <p className="px-4 py-3 text-sm text-mist">Ничего не найдено</p>
@@ -151,7 +151,7 @@ export function SearchBox() {
                           )}
                         </div>
                         <div className="min-w-0">
-                          <p className="line-clamp-1 text-sm font-medium text-ink">{item.title}</p>
+                          <p className="line-clamp-1 text-sm font-medium text-fg">{item.title}</p>
                           <p className="text-xs text-mist">
                             {item.mediaType === "movie" ? "Фильм" : "Сериал"}
                             {item.year ? ` · ${item.year}` : ""}

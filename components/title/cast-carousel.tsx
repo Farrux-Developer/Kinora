@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Carousel } from "@/components/ui/carousel";
-import { Reveal, staggerDelay } from "@/components/ui/reveal";
+import { Reveal } from "@/components/ui/reveal";
+import { staggerDelay } from "@/components/ui/stagger";
 import { SectionHeading } from "@/components/ui/section";
 import { profileUrl } from "@/lib/tmdb/image";
 import type { CastMember } from "@/lib/tmdb/types";

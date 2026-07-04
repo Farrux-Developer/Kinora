@@ -1,6 +1,6 @@
 function ratingTone(value: number, onDark: boolean) {
   if (onDark) return value >= 7 ? "text-white" : "text-mist-dark";
-  return value >= 7 ? "text-ink" : "text-mist";
+  return value >= 7 ? "text-fg" : "text-mist";
 }
 
 export function RatingBadge({

@@ -1,12 +1,13 @@
 import { PosterCard } from "@/components/ui/poster-card";
-import { Reveal, staggerDelay } from "@/components/ui/reveal";
+import { Reveal } from "@/components/ui/reveal";
+import { staggerDelay } from "@/components/ui/stagger";
 import type { MediaItem } from "@/lib/tmdb/types";
 
 export function MediaGrid({ items }: { items: MediaItem[] }) {
   if (!items.length) {
     return (
       <div className="rounded-lg border border-line bg-paper py-16 text-center">
-        <p className="text-sm font-medium text-ink">Ничего не найдено</p>
+        <p className="text-sm font-medium text-fg">Ничего не найдено</p>
         <p className="mt-1 text-sm text-mist">Попробуйте изменить фильтры или запрос.</p>
       </div>
     );

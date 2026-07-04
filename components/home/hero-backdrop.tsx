@@ -8,7 +8,7 @@ export function HeroBackdrop() {
       aria-hidden
       className="absolute inset-0"
       style={{
-        backgroundImage: "radial-gradient(circle, #e2e8f0 1px, transparent 1px)",
+        backgroundImage: "radial-gradient(circle, var(--color-line) 1px, transparent 1px)",
         backgroundSize: "28px 28px",
         maskImage: "linear-gradient(to bottom, black 40%, transparent 95%)",
         WebkitMaskImage: "linear-gradient(to bottom, black 40%, transparent 95%)",

@@ -7,7 +7,7 @@ import type { AuthFormState } from "@/server/actions/auth";
 const initialState: AuthFormState = { error: null };
 
 const inputClass =
-  "h-11 w-full rounded-md border border-line bg-white px-3.5 text-sm text-ink placeholder:text-mist-2 transition-colors focus:border-accent focus:outline-none";
+  "h-11 w-full rounded-md border border-line bg-surface px-3.5 text-sm text-fg placeholder:text-mist-2 transition-colors focus:border-accent focus:outline-none";
 
 export function AuthForm({
   mode,
@@ -26,18 +26,18 @@ export function AuthForm({
       {next && <input type="hidden" name="next" value={next} />}
 
       {!isLogin && (
-        <label className="flex flex-col gap-1.5 text-sm font-medium text-ink">
+        <label className="flex flex-col gap-1.5 text-sm font-medium text-fg">
           Имя
           <input name="name" type="text" required minLength={2} maxLength={64} placeholder="Как к вам обращаться" className={inputClass} />
         </label>
       )}
 
-      <label className="flex flex-col gap-1.5 text-sm font-medium text-ink">
+      <label className="flex flex-col gap-1.5 text-sm font-medium text-fg">
         Email
         <input name="email" type="email" required autoComplete="email" placeholder="you@example.com" className={inputClass} />
       </label>
 
-      <label className="flex flex-col gap-1.5 text-sm font-medium text-ink">
+      <label className="flex flex-col gap-1.5 text-sm font-medium text-fg">
         Пароль
         <input
           name="password"
@@ -51,7 +51,7 @@ export function AuthForm({
       </label>
 
       {state.error && (
-        <p role="alert" className="rounded-md border border-line bg-paper px-3.5 py-2.5 text-sm text-ink">
+        <p role="alert" className="rounded-md border border-line bg-paper px-3.5 py-2.5 text-sm text-fg">
           {state.error}
         </p>
       )}

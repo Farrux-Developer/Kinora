@@ -36,7 +36,7 @@ export function FilterBar({ genres = [] }: { genres?: TmdbGenre[] }) {
   };
 
   const selectClass =
-    "h-9 rounded-md border border-line bg-white px-2.5 text-sm text-ink transition-colors hover:border-mist-2 focus:border-accent focus:outline-none";
+    "h-9 rounded-md border border-line bg-surface px-2.5 text-sm text-fg transition-colors hover:border-mist-2 focus:border-accent focus:outline-none";
 
   const hasFilters = ["genre", "year", "rating", "sort"].some((key) => searchParams.has(key));
 
@@ -105,7 +105,7 @@ export function FilterBar({ genres = [] }: { genres?: TmdbGenre[] }) {
         <button
           type="button"
           onClick={() => startTransition(() => router.push(pathname, { scroll: false }))}
-          className="h-9 rounded-md px-2.5 text-sm font-medium text-mist transition-colors hover:text-ink"
+          className="h-9 rounded-md px-2.5 text-sm font-medium text-mist transition-colors hover:text-fg"
         >
           Сбросить
         </button>

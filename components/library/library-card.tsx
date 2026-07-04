@@ -45,7 +45,7 @@ export function LibraryCard({ item }: { item: LibraryItem }) {
           type="submit"
           aria-label={`Удалить «${item.title}» из списка`}
           title="Удалить из списка"
-          className="flex items-center justify-center rounded-md border border-line bg-white/95 p-1.5 text-mist opacity-0 transition-opacity duration-200 group-hover:opacity-100 focus-visible:opacity-100 hover:text-ink"
+          className="flex items-center justify-center rounded-md border border-line bg-surface/95 p-1.5 text-mist opacity-0 transition-opacity duration-200 group-hover:opacity-100 focus-visible:opacity-100 hover:text-fg"
         >
           <svg viewBox="0 0 24 24" className="size-4 stroke-current" fill="none" strokeWidth="2" strokeLinecap="round" aria-hidden>
             <path d="M6 6l12 12M18 6L6 18" />
@@ -54,7 +54,7 @@ export function LibraryCard({ item }: { item: LibraryItem }) {
       </form>
 
       <div className="mt-2">
-        <p className="line-clamp-1 text-sm font-medium text-ink">{item.title}</p>
+        <p className="line-clamp-1 text-sm font-medium text-fg">{item.title}</p>
         <div className="mt-0.5 flex items-center gap-2 text-xs text-mist">
           <RatingBadge value={item.voteAverage} className="!text-xs" />
           {item.releaseYear && <span>{item.releaseYear}</span>}

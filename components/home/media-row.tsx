@@ -1,6 +1,7 @@
 import { Carousel, CarouselItem } from "@/components/ui/carousel";
 import { PosterCard } from "@/components/ui/poster-card";
-import { Reveal, staggerDelay } from "@/components/ui/reveal";
+import { Reveal } from "@/components/ui/reveal";
+import { staggerDelay } from "@/components/ui/stagger";
 import { SectionHeading } from "@/components/ui/section";
 import { safe } from "@/lib/tmdb/client";
 import type { MediaItem, Paginated } from "@/lib/tmdb/types";

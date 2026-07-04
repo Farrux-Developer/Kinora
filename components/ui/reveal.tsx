@@ -36,8 +36,3 @@ export function Reveal({
     </motion.div>
   );
 }
-
-/** Stagger helper: caps the delay so long grids don't wait forever. */
-export function staggerDelay(index: number, step = 0.06, max = 0.42) {
-  return Math.min(index * step, max);
-}

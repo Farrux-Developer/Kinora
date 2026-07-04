@@ -10,7 +10,6 @@ import * as THREE from "three";
  * "film frames" with gentle mouse parallax. Navy/slate on white only.
  */
 
-const INK = "#0f1d33";
 const MIST = "#94a3b8";
 const ACCENT = "#1e4fd8";
 
@@ -60,7 +59,7 @@ function FilmFrame({
   position,
   rotation,
   scale = 1,
-  color = INK,
+  color = MIST,
   opacity = 0.35,
 }: {
   position: [number, number, number];
@@ -69,6 +68,7 @@ function FilmFrame({
   color?: string;
   opacity?: number;
 }) {
+  // Mid-gray reads on both the light and dark hero backgrounds.
   return (
     <Float speed={1.4} rotationIntensity={0.25} floatIntensity={0.6}>
       <group position={position} rotation={rotation} scale={scale}>

@@ -44,9 +44,9 @@ cp .env.example .env
 Заполните `.env`:
 
 ```env
-TMDB_API_KEY="ваш ключ"
+TMDB_API_KEY="bb921d994f0023dc0acc8e0ca0889a65"
 DATABASE_URL="postgresql://postgres:password@localhost:5432/kinora"
-AUTH_SECRET="сгенерируйте: npx auth secret"
+AUTH_SECRET="230d229269eeaba3b1ab4b17a8dfed00b6a34223f7e5161f01310bdf8621a4b9"
 ```
 
 ### 3. База данных
@@ -135,6 +135,8 @@ prisma/             # схема, миграции, seed.ts
 ---
 
 Данные предоставлены [The Movie Database (TMDB)](https://www.themoviedb.org/). Проект не связан с TMDB и не сертифицирован ею.
-#   K i n o r a  
- #   K i n o r a  
+#   K i n o r a 
+ 
+ #   K i n o r a 
+ 
  

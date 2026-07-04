@@ -57,8 +57,8 @@ export default async function LibraryPage({
               aria-selected={active}
               className={`-mb-px border-b-2 px-3 py-2.5 text-sm font-medium transition-colors ${
                 active
-                  ? "border-accent text-ink"
-                  : "border-transparent text-mist hover:text-ink"
+                  ? "border-accent text-fg"
+                  : "border-transparent text-mist hover:text-fg"
               }`}
             >
               {item.label}
@@ -73,7 +73,7 @@ export default async function LibraryPage({
       <div className="mt-8">
         {items.length === 0 ? (
           <div className="rounded-lg border border-line bg-paper py-16 text-center">
-            <p className="text-sm font-medium text-ink">Список пуст</p>
+            <p className="text-sm font-medium text-fg">Список пуст</p>
             <p className="mt-1 text-sm text-mist">
               Откройте любой тайтл и нажмите «{activeTab.label === "Избранное" ? "В избранное" : "Смотреть позже"}».
             </p>

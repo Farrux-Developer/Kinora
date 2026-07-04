@@ -101,6 +101,7 @@ export interface TmdbMovieDetails extends TmdbMovieListItem {
   credits?: { cast: TmdbCastMember[] };
   videos?: { results: TmdbVideo[] };
   similar?: TmdbPaginated<TmdbMovieListItem>;
+  "watch/providers"?: { results: Record<string, TmdbWatchProviderRegion> };
 }
 
 export interface TmdbTvDetails extends TmdbTvListItem {
@@ -115,6 +116,24 @@ export interface TmdbTvDetails extends TmdbTvListItem {
   credits?: { cast: TmdbCastMember[] };
   videos?: { results: TmdbVideo[] };
   similar?: TmdbPaginated<TmdbTvListItem>;
+  "watch/providers"?: { results: Record<string, TmdbWatchProviderRegion> };
+}
+
+export interface TmdbWatchProvider {
+  provider_id: number;
+  provider_name: string;
+  logo_path: string | null;
+  display_priority: number;
+}
+
+export interface TmdbWatchProviderRegion {
+  /** JustWatch page for this title in the region. */
+  link: string;
+  free?: TmdbWatchProvider[];
+  ads?: TmdbWatchProvider[];
+  flatrate?: TmdbWatchProvider[];
+  rent?: TmdbWatchProvider[];
+  buy?: TmdbWatchProvider[];
 }
 
 export interface TmdbSeasonDetails {
@@ -181,6 +200,23 @@ export interface Episode {
   voteAverage: number;
 }
 
+export interface WatchProvider {
+  id: number;
+  name: string;
+  logoPath: string | null;
+}
+
+/** Legal watch options for the viewer's region (TMDB/JustWatch data). */
+export interface WatchProviders {
+  /** JustWatch page listing every option for the title. */
+  link: string;
+  /** ISO 3166-1 region the offers apply to. */
+  region: string;
+  free: WatchProvider[];
+  subscription: WatchProvider[];
+  rentOrBuy: WatchProvider[];
+}
+
 export interface TitleDetails extends MediaItem {
   genres: TmdbGenre[];
   tagline: string;
@@ -195,6 +231,7 @@ export interface TitleDetails extends MediaItem {
   seasons: SeasonSummary[];
   numberOfSeasons: number;
   numberOfEpisodes: number;
+  watchProviders: WatchProviders | null;
 }
 
 export type SortOption =

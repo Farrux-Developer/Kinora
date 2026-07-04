@@ -5,7 +5,7 @@ export function Logo({ onDark = false }: { onDark?: boolean }) {
     <Link
       href="/"
       className={`inline-flex items-center gap-2 text-lg font-semibold tracking-tighter ${
-        onDark ? "text-white" : "text-ink"
+        onDark ? "text-white" : "text-fg"
       }`}
     >
       <svg viewBox="0 0 24 24" className="size-5" fill="none" aria-hidden>

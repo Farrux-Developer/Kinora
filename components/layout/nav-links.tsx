@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 export const NAV_ITEMS = [
   { href: "/movies", label: "Фильмы" },
   { href: "/tv", label: "Сериалы" },
-  { href: "/anime", label: "Аниме" },
 ] as const;
 
 export function NavLinks({ className = "" }: { className?: string }) {
@@ -21,7 +20,7 @@ export function NavLinks({ className = "" }: { className?: string }) {
             key={item.href}
             href={item.href}
             className={`text-sm font-medium transition-colors ${
-              active ? "text-ink" : "text-mist hover:text-ink"
+              active ? "text-fg" : "text-mist hover:text-fg"
             }`}
           >
             {item.label}

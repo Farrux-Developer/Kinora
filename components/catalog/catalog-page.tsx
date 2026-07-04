@@ -8,7 +8,7 @@ import { catalogHref } from "@/lib/catalog-params";
 import { isTmdbConfigured, safe } from "@/lib/tmdb/client";
 import type { DiscoverFilters, MediaItem, Paginated, TmdbGenre } from "@/lib/tmdb/types";
 
-/** Shared shell for the /movies, /tv and /anime grid pages. */
+/** Shared shell for the /movies and /tv grid pages. */
 export async function CatalogPage({
   basePath,
   title,
@@ -60,7 +60,7 @@ export async function CatalogPage({
         </>
       ) : (
         <div className="rounded-lg border border-line bg-paper py-16 text-center">
-          <p className="text-sm font-medium text-ink">Не удалось загрузить каталог</p>
+          <p className="text-sm font-medium text-fg">Не удалось загрузить каталог</p>
           <p className="mt-1 text-sm text-mist">Проверьте соединение и обновите страницу.</p>
         </div>
       )}

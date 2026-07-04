@@ -5,7 +5,7 @@ import { HeroCanvas } from "./hero-canvas";
 /** First screen: light, clean, with a monochrome 3D backdrop. */
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white">
+    <section className="relative overflow-hidden bg-surface">
       <HeroCanvas />
 
       <div className="relative mx-auto flex w-full max-w-7xl flex-col items-start px-4 py-24 sm:px-6 sm:py-36">
@@ -29,7 +29,7 @@ export function Hero() {
             </Link>
             <Link
               href="/search"
-              className="inline-flex items-center rounded-md border border-line px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-mist-2"
+              className="inline-flex items-center rounded-md border border-line px-5 py-2.5 text-sm font-semibold text-fg transition-colors hover:border-mist-2"
             >
               Найти тайтл
             </Link>

@@ -15,6 +15,9 @@ import type {
   TmdbTvDetails,
   TmdbTvListItem,
   TmdbVideo,
+  TmdbWatchProvider,
+  TmdbWatchProviderRegion,
+  WatchProviders,
 } from "./types";
 
 const API_BASE = "https://api.themoviedb.org/3";
@@ -165,6 +168,48 @@ function pickTrailer(videos: TmdbVideo[] | undefined): string | null {
   return candidates[0]?.key ?? null;
 }
 
+/** Regions to try for watch offers, most relevant first. */
+const WATCH_REGIONS = ["RU", "US", "DE", "GB"];
+
+function normalizeProviders(list: TmdbWatchProvider[] | undefined) {
+  return (list ?? [])
+    .sort((a, b) => a.display_priority - b.display_priority)
+    .map((provider) => ({
+      id: provider.provider_id,
+      name: provider.provider_name,
+      logoPath: provider.logo_path,
+    }));
+}
+
+function pickWatchProviders(
+  results: Record<string, TmdbWatchProviderRegion> | undefined,
+): WatchProviders | null {
+  if (!results) return null;
+  const region =
+    WATCH_REGIONS.find((code) => results[code]) ?? Object.keys(results)[0];
+  const offers = region ? results[region] : undefined;
+  if (!offers) return null;
+
+  // Dedupe: a provider often appears in both `free` and `ads`.
+  const free = [...normalizeProviders(offers.free), ...normalizeProviders(offers.ads)].filter(
+    (provider, index, all) => all.findIndex((p) => p.id === provider.id) === index,
+  );
+  const rentOrBuy = [...normalizeProviders(offers.rent), ...normalizeProviders(offers.buy)].filter(
+    (provider, index, all) => all.findIndex((p) => p.id === provider.id) === index,
+  );
+
+  const providers: WatchProviders = {
+    link: offers.link,
+    region,
+    free,
+    subscription: normalizeProviders(offers.flatrate),
+    rentOrBuy,
+  };
+  return providers.free.length || providers.subscription.length || providers.rentOrBuy.length
+    ? providers
+    : null;
+}
+
 /* -------------------------------- catalog ------------------------------- */
 
 export async function getTrending(
@@ -204,20 +249,6 @@ export async function getTopRatedAnime(page = 1): Promise<Paginated<MediaItem>> 
   return normalizePage(data, "tv");
 }
 
-export async function discoverAnime(filters: DiscoverFilters = {}): Promise<Paginated<MediaItem>> {
-  const { page = 1, year, minRating, sortBy = "popularity.desc" } = filters;
-  const data = await tmdb<TmdbPaginated<TmdbTvListItem>>("/discover/tv", {
-    page,
-    with_genres: ANIMATION_GENRE_ID,
-    with_origin_country: "JP",
-    sort_by: sortBy === "primary_release_date.desc" ? "first_air_date.desc" : sortBy,
-    first_air_date_year: year,
-    "vote_average.gte": minRating,
-    "vote_count.gte": sortBy === "vote_average.desc" ? 100 : undefined,
-  });
-  return normalizePage(data, "tv");
-}
-
 export async function discoverTitles(
   mediaType: TmdbMediaType,
   filters: DiscoverFilters = {},
@@ -250,7 +281,7 @@ export async function getMovieDetails(id: number): Promise<TitleDetails> {
   const raw = await tmdb<TmdbMovieDetails>(
     `/movie/${id}`,
     {
-      append_to_response: "credits,videos,similar",
+      append_to_response: "credits,videos,similar,watch/providers",
       include_video_language: "ru,en,null",
     },
     DAY,
@@ -274,6 +305,7 @@ export async function getMovieDetails(id: number): Promise<TitleDetails> {
     seasons: [],
     numberOfSeasons: 0,
     numberOfEpisodes: 0,
+    watchProviders: pickWatchProviders(raw["watch/providers"]?.results),
   };
 }
 
@@ -281,7 +313,7 @@ export async function getTvDetails(id: number): Promise<TitleDetails> {
   const raw = await tmdb<TmdbTvDetails>(
     `/tv/${id}`,
     {
-      append_to_response: "credits,videos,similar",
+      append_to_response: "credits,videos,similar,watch/providers",
       include_video_language: "ru,en,null",
     },
     DAY,
@@ -315,6 +347,7 @@ export async function getTvDetails(id: number): Promise<TitleDetails> {
       })),
     numberOfSeasons: raw.number_of_seasons,
     numberOfEpisodes: raw.number_of_episodes,
+    watchProviders: pickWatchProviders(raw["watch/providers"]?.results),
   };
 }
 

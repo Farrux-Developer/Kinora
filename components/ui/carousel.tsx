@@ -82,7 +82,7 @@ export function Carousel({ children, onDark = false }: { children: ReactNode; on
   const arrowClass = `absolute top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-md border p-2 opacity-0 transition-opacity duration-200 group-hover/carousel:opacity-100 focus-visible:opacity-100 md:flex disabled:hidden ${
     onDark
       ? "border-line-dark bg-ink text-white hover:bg-ink-2"
-      : "border-line bg-white text-ink hover:bg-paper"
+      : "border-line bg-surface text-fg hover:bg-paper"
   }`;
 
   return (

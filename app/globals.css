@@ -13,6 +13,10 @@
   --color-line-dark: #1c2c47;
   --color-mist-dark: #8194ad;
 
+  /* Semantic tokens — flipped by the .dark class on <html> */
+  --color-surface: #ffffff;
+  --color-fg: #0a1628;
+
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
@@ -25,9 +29,21 @@ html {
   scrollbar-gutter: stable;
 }
 
+/* Dark theme: page surfaces become navy, text becomes light; the always-dark
+   navy sections (bg-ink / *-dark tokens) keep their values. */
+.dark {
+  --color-surface: #0a1628;
+  --color-fg: #f8fafc;
+  --color-paper: #0f1d33;
+  --color-line: #1c2c47;
+  --color-mist: #94a3b8;
+  --color-mist-2: #64748b;
+  color-scheme: dark;
+}
+
 body {
-  background: #ffffff;
-  color: var(--color-ink);
+  background: var(--color-surface);
+  color: var(--color-fg);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;

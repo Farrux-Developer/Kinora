@@ -15,8 +15,8 @@ export function Section({
   children: ReactNode;
 }) {
   const tones = {
-    light: "bg-white text-ink",
-    paper: "bg-paper text-ink",
+    light: "bg-surface text-fg",
+    paper: "bg-paper text-fg",
     dark: "bg-ink text-white",
   };
   return (
@@ -42,7 +42,7 @@ export function SectionHeading({
         <Link
           href={href}
           className={`shrink-0 text-sm font-medium transition-colors ${
-            onDark ? "text-mist-dark hover:text-white" : "text-mist hover:text-ink"
+            onDark ? "text-mist-dark hover:text-white" : "text-mist hover:text-fg"
           }`}
         >
           Смотреть все →

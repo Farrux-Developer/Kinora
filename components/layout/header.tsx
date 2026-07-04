@@ -5,10 +5,11 @@ import { AuthMenu } from "./auth-menu";
 import { Logo } from "./logo";
 import { MobileMenu } from "./mobile-menu";
 import { NavLinks } from "./nav-links";
+import { ThemeToggle } from "./theme-toggle";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-40 border-b border-line bg-surface/95 backdrop-blur-sm">
       <div className="relative mx-auto flex h-14 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <div className="flex items-center gap-8">
           <Logo />
@@ -17,10 +18,11 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <SearchBox />
+          <ThemeToggle />
           <Link
             href="/search"
             aria-label="Поиск"
-            className="flex items-center justify-center rounded-md border border-line p-2 text-mist transition-colors hover:border-mist-2 hover:text-ink lg:hidden"
+            className="flex items-center justify-center rounded-md border border-line p-2 text-mist transition-colors hover:border-mist-2 hover:text-fg lg:hidden"
           >
             <svg viewBox="0 0 24 24" className="size-4 stroke-current" fill="none" strokeWidth="2" strokeLinecap="round" aria-hidden>
               <circle cx="11" cy="11" r="7" />

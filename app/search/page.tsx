@@ -96,7 +96,7 @@ export default async function SearchPage({
         </>
       ) : (
         <div className="rounded-lg border border-line bg-paper py-16 text-center">
-          <p className="text-sm font-medium text-ink">Не удалось выполнить поиск</p>
+          <p className="text-sm font-medium text-fg">Не удалось выполнить поиск</p>
           <p className="mt-1 text-sm text-mist">Попробуйте ещё раз чуть позже.</p>
         </div>
       )}

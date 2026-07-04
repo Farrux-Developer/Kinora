@@ -4,7 +4,8 @@ import { Suspense } from "react";
 import { Carousel, CarouselItem } from "@/components/ui/carousel";
 import { PosterCard, PosterPlaceholder } from "@/components/ui/poster-card";
 import { RatingBadge } from "@/components/ui/rating-badge";
-import { Reveal, staggerDelay } from "@/components/ui/reveal";
+import { Reveal } from "@/components/ui/reveal";
+import { staggerDelay } from "@/components/ui/stagger";
 import { SectionHeading } from "@/components/ui/section";
 import { TrailerButton } from "@/components/ui/trailer-button";
 import { backdropUrl, posterUrl } from "@/lib/tmdb/image";
@@ -12,6 +13,7 @@ import type { TitleDetails } from "@/lib/tmdb/types";
 import { CastCarousel } from "./cast-carousel";
 import { ListActions } from "./list-actions";
 import { Seasons } from "./seasons";
+import { WatchProvidersBlock } from "./watch-providers";
 
 function formatRuntime(minutes: number | null, isTv: boolean): string | null {
   if (!minutes) return null;
@@ -108,13 +110,35 @@ export function TitlePage({ details }: { details: TitleDetails }) {
             )}
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
-              <TrailerButton trailerKey={details.trailerKey} />
+              {details.watchProviders && (
+                <a
+                  href={details.watchProviders.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent/90"
+                >
+                  <svg viewBox="0 0 24 24" className="size-4 stroke-current" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
+                    <path d="M10 9l5 3-5 3V9z" className="fill-current" />
+                  </svg>
+                  Смотреть онлайн
+                </a>
+              )}
+              <TrailerButton
+                trailerKey={details.trailerKey}
+                variant={details.watchProviders ? "onDark" : "primary"}
+              />
               <Suspense fallback={null}>
                 <ListActions item={details} />
               </Suspense>
             </div>
           </Reveal>
         </div>
+
+        {/* Legal watch options */}
+        <Reveal>
+          <WatchProvidersBlock providers={details.watchProviders} />
+        </Reveal>
 
         {/* Cast */}
         <div className="mt-16">

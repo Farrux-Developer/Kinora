@@ -18,7 +18,6 @@ export function Footer() {
               <span className="font-semibold">Каталог</span>
               <Link href="/movies" className="text-mist-dark transition-colors hover:text-white">Фильмы</Link>
               <Link href="/tv" className="text-mist-dark transition-colors hover:text-white">Сериалы</Link>
-              <Link href="/anime" className="text-mist-dark transition-colors hover:text-white">Аниме</Link>
             </div>
             <div className="flex flex-col gap-2">
               <span className="font-semibold">Аккаунт</span>

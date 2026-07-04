@@ -57,7 +57,7 @@ export default function HomePage() {
 
       <Section tone="dark">
         <Suspense fallback={<RowFallback onDark />}>
-          <MediaRow title="Топ аниме" href="/anime" itemsPromise={getTopRatedAnime()} onDark />
+          <MediaRow title="Топ аниме" itemsPromise={getTopRatedAnime()} onDark />
         </Suspense>
       </Section>
 

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center bg-white px-4 py-32 text-center">
+    <div className="flex flex-1 flex-col items-center justify-center bg-surface px-4 py-32 text-center">
       <p className="text-xs font-semibold tracking-[0.14em] text-accent uppercase">Ошибка 404</p>
       <h1 className="mt-3 text-3xl font-semibold tracking-tighter sm:text-4xl">
         Такой страницы нет
