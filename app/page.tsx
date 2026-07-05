@@ -7,9 +7,9 @@ import { Section } from "@/components/ui/section";
 import { CarouselSkeleton, SectionTitleSkeleton } from "@/components/ui/skeletons";
 import {
   discoverTitles,
+  getCartoonMovies,
   getOnTheAirTv,
   getPopularMovies,
-  getTopRatedAnime,
   getTrending,
   isTmdbConfigured,
 } from "@/lib/tmdb/client";
@@ -57,7 +57,7 @@ export default function HomePage() {
 
       <Section tone="dark">
         <Suspense fallback={<RowFallback onDark />}>
-          <MediaRow title="Топ аниме" itemsPromise={getTopRatedAnime()} onDark />
+          <MediaRow title="Мультфильмы" href="/cartoons" itemsPromise={getCartoonMovies()} onDark />
         </Suspense>
       </Section>
 

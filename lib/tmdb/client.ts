@@ -238,15 +238,15 @@ export async function getOnTheAirTv(page = 1): Promise<Paginated<MediaItem>> {
   return normalizePage(data, "tv");
 }
 
-export async function getTopRatedAnime(page = 1): Promise<Paginated<MediaItem>> {
-  const data = await tmdb<TmdbPaginated<TmdbTvListItem>>("/discover/tv", {
+/** Animated movies (cartoons) — popular first, obscure entries filtered out. */
+export async function getCartoonMovies(page = 1): Promise<Paginated<MediaItem>> {
+  const data = await tmdb<TmdbPaginated<TmdbMovieListItem>>("/discover/movie", {
     page,
     with_genres: ANIMATION_GENRE_ID,
-    with_origin_country: "JP",
-    sort_by: "vote_average.desc",
-    "vote_count.gte": 200,
+    sort_by: "popularity.desc",
+    "vote_count.gte": 100,
   });
-  return normalizePage(data, "tv");
+  return normalizePage(data, "movie");
 }
 
 export async function discoverTitles(

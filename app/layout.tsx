@@ -12,11 +12,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Kinora — фильмы, сериалы и аниме",
+    default: "Kinora — фильмы, сериалы и мультфильмы",
     template: "%s — Kinora",
   },
   description:
-    "Каталог фильмов, сериалов и аниме: рейтинги, трейлеры, актёрские составы и персональные списки. Данные предоставлены TMDB.",
+    "Каталог фильмов, сериалов и мультфильмов: рейтинги, трейлеры, актёрские составы и персональные списки. Данные предоставлены TMDB.",
 };
 
 export default function RootLayout({

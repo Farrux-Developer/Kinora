@@ -12,7 +12,7 @@ import type { DiscoverFilters, MediaItem, Paginated, TmdbGenre } from "@/lib/tmd
 
 export const metadata: Metadata = {
   title: "Поиск",
-  description: "Поиск по фильмам, сериалам и аниме с фильтрами.",
+  description: "Поиск по фильмам, сериалам и мультфильмам с фильтрами.",
 };
 
 /**

@@ -9,7 +9,7 @@ export function Footer() {
           <div className="max-w-sm space-y-3">
             <Logo onDark />
             <p className="text-sm leading-relaxed text-mist-dark">
-              Каталог фильмов, сериалов и аниме: рейтинги, трейлеры и персональные списки.
+              Каталог фильмов, сериалов и мультфильмов: рейтинги, трейлеры и персональные списки.
             </p>
           </div>
 
@@ -18,6 +18,7 @@ export function Footer() {
               <span className="font-semibold">Каталог</span>
               <Link href="/movies" className="text-mist-dark transition-colors hover:text-white">Фильмы</Link>
               <Link href="/tv" className="text-mist-dark transition-colors hover:text-white">Сериалы</Link>
+              <Link href="/cartoons" className="text-mist-dark transition-colors hover:text-white">Мультфильмы</Link>
             </div>
             <div className="flex flex-col gap-2">
               <span className="font-semibold">Аккаунт</span>

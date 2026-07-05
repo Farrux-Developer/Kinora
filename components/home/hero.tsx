@@ -14,7 +14,7 @@ export function Hero() {
             Каталог кино
           </p>
           <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tighter text-balance sm:text-6xl">
-            Фильмы, сериалы и аниме — в одном каталоге
+            Фильмы, сериалы и мультфильмы — в одном каталоге
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-mist sm:text-lg">
             Рейтинги, трейлеры и актёрские составы тысяч тайтлов. Сохраняйте

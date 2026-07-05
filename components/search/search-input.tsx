@@ -56,7 +56,7 @@ export function SearchInput() {
         autoFocus
         value={value}
         onChange={(event) => setValue(event.target.value)}
-        placeholder="Название фильма, сериала или аниме…"
+        placeholder="Название фильма, сериала или мультфильма…"
         aria-label="Поисковый запрос"
         className="h-12 w-full rounded-lg border border-line bg-surface pr-4 pl-12 text-base text-fg placeholder:text-mist-2 transition-colors focus:border-accent focus:outline-none"
       />

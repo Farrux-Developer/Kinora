@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 export const NAV_ITEMS = [
   { href: "/movies", label: "Фильмы" },
   { href: "/tv", label: "Сериалы" },
+  { href: "/cartoons", label: "Мультфильмы" },
 ] as const;
 
 export function NavLinks({ className = "" }: { className?: string }) {
