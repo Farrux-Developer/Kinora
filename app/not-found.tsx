@@ -8,7 +8,7 @@ export default function NotFound() {
         Такой страницы нет
       </h1>
       <p className="mt-3 max-w-md text-sm leading-relaxed text-mist sm:text-base">
-        Тайтл могли удалить из базы, или в адресе опечатка.
+        Title могли удалить из базы, или в адресе опечатка.
       </p>
       <Link
         href="/"
